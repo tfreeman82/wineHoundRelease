@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wine Hound</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- LOGIN STRINGS -->
+    <string name="logo">Wine Hound Logo</string>
+    <string name="userNameHint">Username</string>
+    <string name="userPassHint">Password</string>
+    <string name="loginBtnText">Login</string>
+    <string name="signupBtnText">Sign Up</string>
+    <string name="title_activity_landing">LandingActivity</string>
+    <string name="title_activity_wine_list">WineListActivity</string>
+    <string name="title_activity_wine_add">wineAddActivity</string>
+
+    <string name="wineSizeSpinner">Wine Size</string>
+
+</resources>

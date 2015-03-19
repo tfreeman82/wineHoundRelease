@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.tristanfreeman.winehound.wineAddActivity$PlaceholderFragment">
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_centerHorizontal="true"
+        android:numStars="5"
+        android:stepSize="1"
+        android:rating="3"
+        android:progressDrawable="@drawable/form_ratingbar"
+        android:layout_marginBottom="15dp"
+        style="?android:attr/ratingBarStyle"/>
+
+    <EditText
+        android:id="@+id/wineName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rating"
+        android:layout_marginBottom="15dp"
+        android:hint="Wine Name"/>
+
+    <EditText
+        android:id="@+id/wineBrand"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wineName"
+        android:layout_marginBottom="15dp"
+        android:hint="Wine Brand"/>
+
+    <EditText
+        android:id="@+id/wineMl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@+id/wineBrand"
+        android:hint="Size in ml"/>
+
+
+    <EditText
+        android:id="@+id/wineRetailer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wineMl"
+        android:layout_marginBottom="15dp"
+        android:hint="Retailer"/>
+
+    <EditText
+        android:id="@+id/wineNotes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wineRetailer"
+        android:maxLines= "5"
+        android:hint="Notes"/>
+
+</RelativeLayout>
