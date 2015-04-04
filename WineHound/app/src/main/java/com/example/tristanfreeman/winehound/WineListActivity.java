@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 
 public class WineListActivity extends ActionBarActivity {
 
@@ -102,6 +104,15 @@ public class WineListActivity extends ActionBarActivity {
             wineList = (ListView)rootView.findViewById(R.id.wineList);
 
             return rootView;
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+
+            WineDataSource dataSource = new WineDataSource(this.getActivity());
+            ArrayList<Wine> wines = dataSource.read();
+            wineList.setAdapter(new wineAdapter(getActivity(), wines));
         }
     }
 }

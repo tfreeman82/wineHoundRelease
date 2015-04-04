@@ -11,7 +11,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.EditText;
 import android.widget.RatingBar;
 
@@ -65,6 +64,7 @@ public class wineAddActivity extends ActionBarActivity {
     EditText wineMl;
     EditText wineRetailer;
     EditText wineNotes;
+    private Wine currentWine;
 
 
         public wineAddFragment() {
@@ -82,19 +82,14 @@ public class wineAddActivity extends ActionBarActivity {
             inflater.inflate(R.menu.menu_wine_add, menu);
         }
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-            if(item.getItemId() == R.id.wineSave){
 
-            }
-            return super.onOptionsItemSelected(item);
-        }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_wine_add, container, false);
 
+            currentWine = new Wine();
             wineRating = (RatingBar)rootView.findViewById(R.id.rating);
             wineName = (EditText)rootView.findViewById(R.id.wineName);
             wineBrand = (EditText)rootView.findViewById(R.id.wineBrand);
@@ -102,6 +97,30 @@ public class wineAddActivity extends ActionBarActivity {
             wineRetailer = (EditText)rootView.findViewById(R.id.wineRetailer);
             wineNotes = (EditText)rootView.findViewById(R.id.wineNotes);
             return rootView;
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            if(item.getItemId() == R.id.wineSave){
+                String name = wineName.getText().toString();
+                String brand = wineBrand.getText().toString();
+                String mlString = wineMl.getText().toString();
+                int ml = Integer.valueOf(mlString);
+                String retailer = wineRetailer.getText().toString();
+                String notes = wineNotes.getText().toString();
+                float rating = wineRating.getRating();
+
+                currentWine.setName(name);
+                currentWine.setBrand(brand);
+                currentWine.setMl(ml);
+                currentWine.setRetailer(retailer);
+                currentWine.setNotes(notes);
+                currentWine.setRating(rating);
+
+                WineDataSource dataSource = new WineDataSource(getActivity());
+                dataSource.create(currentWine);
+            }
+            return super.onOptionsItemSelected(item);
         }
     }
 }
